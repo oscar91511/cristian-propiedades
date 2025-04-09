@@ -6,7 +6,6 @@ import {
   BedDouble,
   Bath,
   Ruler,
-  Star,
   ChevronLeft,
   Sun,
   Moon,

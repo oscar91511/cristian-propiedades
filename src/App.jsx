@@ -1,11 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaUserTie, FaHome, FaHandshake, FaWhatsapp } from "react-icons/fa";
+import { HiMenuAlt3, HiX } from "react-icons/hi";
 import Contacto from "./components/Contact";
 import PropertyFilter from "./components/PropertyFilter";
 
 export default function LandingPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     document.title = "Cristian Propiedades";
     AOS.init({
@@ -17,7 +20,10 @@ export default function LandingPage() {
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false); // Cierra el menú al hacer clic
+    }
   };
 
   return (
@@ -28,7 +34,17 @@ export default function LandingPage() {
           <img src="/logo.svg" alt="Logo" className="w-8 h-8" />
           Cristian Propiedades
         </h1>
-        <div className="space-x-6">
+
+        {/* Botón hamburguesa para móviles */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-blue-700 text-3xl focus:outline-none"
+        >
+          {menuOpen ? <HiX /> : <HiMenuAlt3 />}
+        </button>
+
+        {/* Menú en pantallas grandes */}
+        <div className="hidden md:flex space-x-6">
           {["inicio", "biografia", "contacto"].map((section) => (
             <button
               key={section}
@@ -44,6 +60,25 @@ export default function LandingPage() {
           ))}
         </div>
       </nav>
+
+      {/* Menú móvil */}
+      {menuOpen && (
+        <div className="md:hidden fixed top-16 left-0 right-0 bg-white/90 backdrop-blur-md shadow-md px-6 py-4 flex flex-col items-start space-y-4 z-40 transition-all">
+          {["inicio", "biografia", "contacto"].map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className="text-lg text-gray-700 font-semibold hover:text-blue-600 transition-all"
+            >
+              {section === "inicio"
+                ? "Inicio"
+                : section === "biografia"
+                ? "Sobre mí"
+                : "Contacto"}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Hero */}
       <section
