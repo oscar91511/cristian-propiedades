@@ -56,7 +56,7 @@ export default function PropiedadesPage() {
         </button>
         <button
           onClick={() => setModoOscuro(!modoOscuro)}
-          className="px-4 py-2 rounded-lg border shadow-md flex items-center gap-2 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+          className="px-4 py-2 rounded-lg border shadow-md flex items-center gap-2 hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-white transition"
         >
           {modoOscuro ? (
             <Sun className="w-5 h-5" />
