@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaUserTie, FaHome, FaHandshake, FaWhatsapp } from "react-icons/fa";
 import Contacto from "./components/Contact";
+import PropertyFilter from "./components/PropertyFilter";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -10,7 +11,7 @@ export default function LandingPage() {
     AOS.init({
       duration: 2000,
       once: true,
-      offset:200,
+      offset: 200,
     });
   }, []);
 
@@ -22,16 +23,17 @@ export default function LandingPage() {
   return (
     <div className="font-sans bg-gray-100 text-gray-800 scroll-smooth">
       {/* Navbar */}
-      <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-        <h1 className="text-2xl font-bold text-blue-700">
+      <nav className="bg-white/80 backdrop-blur-md shadow-md px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+        <h1 className="text-2xl font-bold text-blue-700 flex items-center gap-2">
+          <img src="/logo.svg" alt="Logo" className="w-8 h-8" />
           Cristian Propiedades
         </h1>
-        <div className="space-x-4">
+        <div className="space-x-6">
           {["inicio", "biografia", "contacto"].map((section) => (
             <button
               key={section}
               onClick={() => scrollToSection(section)}
-              className="text-gray-700 hover:text-blue-600 font-bold transition-all hover:scale-120"
+              className="relative text-gray-700 hover:text-blue-600 font-bold transition-all after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-blue-600 hover:after:w-full after:transition-all after:duration-300"
             >
               {section === "inicio"
                 ? "Inicio"
@@ -158,6 +160,7 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
+      <PropertyFilter />
       {/* Testimonios */}
       <section className="bg-gray-50 py-16 px-6" data-aos="fade-up">
         <h3 className="text-3xl font-semibold text-center text-blue-700 mb-10">
