@@ -45,41 +45,47 @@ export default function LandingPage() {
 
         {/* Menú en pantallas grandes */}
         <div className="hidden md:flex space-x-6">
-          {["inicio", "biografia", "contacto"].map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
-              className="relative text-gray-700 hover:text-blue-600 font-bold transition-all after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-blue-600 hover:after:w-full after:transition-all after:duration-300"
-            >
-              {section === "inicio"
-                ? "Inicio"
-                : section === "biografia"
-                ? "Sobre mí"
-                : "Contacto"}
-            </button>
-          ))}
+          {["inicio", "biografia", "mas-propiedades", "contacto"].map(
+            (section) => (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                className="relative text-gray-700 hover:text-blue-600 font-bold transition-all after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-blue-600 hover:after:w-full after:transition-all after:duration-300"
+              >
+                {section === "inicio"
+                  ? "Inicio"
+                  : section === "biografia"
+                  ? "Sobre mí"
+                  : section === "mas-propiedades"
+                  ? "Mas Propiedades"
+                  : "Contacto"}
+              </button>
+            )
+          )}
         </div>
       </nav>
-
       {/* Menú móvil */}
       {menuOpen && (
         <div className="md:hidden fixed top-16 left-0 right-0 bg-white/90 backdrop-blur-md shadow-md px-6 py-4 flex flex-col items-start space-y-4 z-40 transition-all">
-          {["inicio", "biografia", "contacto"].map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
-              className="text-lg text-gray-700 font-semibold hover:text-blue-600 transition-all"
-            >
-              {section === "inicio"
-                ? "Inicio"
-                : section === "biografia"
-                ? "Sobre mí"
-                : "Contacto"}
-            </button>
-          ))}
+          {["inicio", "biografia", "mas-propiedades", "contacto"].map(
+            (section) => (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                className="text-lg text-gray-700 font-semibold hover:text-blue-600 transition-all"
+              >
+                {section === "inicio"
+                  ? "Inicio"
+                  : section === "biografia"
+                  ? "Sobre mí"
+                  : section === "mas-propiedades"
+                  ? "Mas Propiedades"
+                  : "Contacto"}
+              </button>
+            )
+          )}
         </div>
       )}
-
       {/* Hero */}
       <section
         id="inicio"
@@ -98,7 +104,6 @@ export default function LandingPage() {
           ¡Contáctame ahora!
         </button>
       </section>
-
       {/* Biografía */}
       <section
         id="biografia"
@@ -115,7 +120,6 @@ export default function LandingPage() {
           cliente.
         </p>
       </section>
-
       {/* Servicios */}
       <section className="py-20 px-6 bg-gray-50" data-aos="fade-up">
         <h3 className="text-3xl font-semibold text-center text-blue-700 mb-10">
@@ -152,7 +156,6 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
-
       {/* Galería */}
       <section className="bg-white py-16 px-6" data-aos="fade-up">
         <h3 className="text-3xl font-semibold text-center text-blue-700 mb-10">
@@ -194,7 +197,9 @@ export default function LandingPage() {
             </div>
           ))}
         </div>
-      </section>
+      </section>{" "}
+      <button id="mas-propiedades" className="...">
+      </button>
       <PropertyFilter />
       {/* Testimonios */}
       <section className="bg-gray-50 py-16 px-6" data-aos="fade-up">
@@ -228,7 +233,6 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
-
       {/* Proceso */}
       <section className="bg-white py-20 px-6" data-aos="fade-up">
         <h3 className="text-3xl font-semibold text-center text-blue-700 mb-10">
@@ -262,7 +266,6 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
-
       {/* FAQ */}
       <section className="bg-blue-50 py-20 px-6" data-aos="fade-up">
         <h3 className="text-3xl font-semibold text-center text-blue-700 mb-8">
@@ -290,12 +293,10 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
-
       {/* Contacto */}
       <div id="contacto" data-aos="fade-up">
         <Contacto />
       </div>
-
       {/* WhatsApp */}
       <a
         href="https://wa.me/573000000000"
@@ -306,7 +307,6 @@ export default function LandingPage() {
       >
         <FaWhatsapp className="text-[50px]" />
       </a>
-
       {/* Footer */}
       <footer className="bg-gray-500 text-white py-6 px-4 text-center">
         <p className="text-sm">
