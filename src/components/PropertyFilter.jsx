@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 
 const properties = [
   {
@@ -37,6 +38,7 @@ const properties = [
 
 export default function PropertyFilter() {
   const [filters, setFilters] = useState({ type: "", location: "", price: "" });
+  const navigate = useNavigate();
 
   const filtered = properties.filter((p) => {
     const matchesType = filters.type ? p.type === filters.type : true;
@@ -55,6 +57,10 @@ export default function PropertyFilter() {
     return matchesType && matchesLocation && matchesPrice;
   });
 
+  const handleMorePropertiesClick = () => {
+    navigate("/propiedades"); 
+  };
+
   return (
     <section
       className="bg-white py-20 px-6"
@@ -64,6 +70,7 @@ export default function PropertyFilter() {
       <h3 className="text-3xl font-semibold text-center text-blue-700 mb-8">
         Filtra Propiedades
       </h3>
+
       <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-4 mb-8">
         <select
           onChange={(e) => setFilters({ ...filters, type: e.target.value })}
@@ -123,6 +130,16 @@ export default function PropertyFilter() {
             No hay propiedades que coincidan.
           </p>
         )}
+      </div>
+
+      {/* Botón de "Más Propiedades" */}
+      <div className="text-center mt-8">
+        <button
+          onClick={handleMorePropertiesClick}
+          className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition-all"
+        >
+          Más Propiedades
+        </button>
       </div>
     </section>
   );
