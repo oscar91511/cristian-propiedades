@@ -6,7 +6,7 @@ import DetallePropiedad from "./components/DetallePropiedad";
 
 function AppRouter() {
   return (
-    <Router>
+    <Router className="font-sans">
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />

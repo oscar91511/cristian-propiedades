@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { data } from "../Data";
 import { motion } from "framer-motion";
@@ -23,6 +23,17 @@ export default function PropiedadesPage() {
   const [tamañoMax, setTamañoMax] = useState("");
   const [modoOscuro, setModoOscuro] = useState(false);
 
+  const [paginaActual, setPaginaActual] = useState(1);
+  const [esMovil, setEsMovil] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setEsMovil(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const propiedadesPorPagina = esMovil ? 9 : 12;
+
   const propiedadesFiltradas = data.filter((prop) => {
     return (
       (tipo ? prop.tipo === tipo : true) &&
@@ -34,7 +45,20 @@ export default function PropiedadesPage() {
     );
   });
 
+  const totalPaginas = Math.min(
+    3,
+    Math.ceil(propiedadesFiltradas.length / propiedadesPorPagina)
+  );
+
+  const indexInicio = (paginaActual - 1) * propiedadesPorPagina;
+  const indexFinal = indexInicio + propiedadesPorPagina;
+
+  const propiedadesPaginadas = propiedadesFiltradas.slice(
+    indexInicio,
+    indexFinal
+  );
   const propiedadesDestacadas = data.filter((prop) => prop.destacada);
+
   const cardStyle = modoOscuro
     ? "bg-gray-800 text-white"
     : "bg-white text-gray-900";
@@ -45,7 +69,6 @@ export default function PropiedadesPage() {
         modoOscuro ? "dark bg-gray-900 text-white" : "bg-gray-50 text-gray-900"
       } p-4 max-w-7xl mx-auto min-h-screen transition-colors duration-500`}
     >
-      {/* Navegación y Modo Oscuro */}
       <div className="flex justify-between items-center mb-6">
         <button
           onClick={() => navigate(-1)}
@@ -71,7 +94,6 @@ export default function PropiedadesPage() {
         Propiedades Disponibles <span className="text-blue-600">🏡</span>
       </h1>
 
-      {/* Filtros */}
       <motion.div
         className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-10"
         initial={{ opacity: 0, y: 50 }}
@@ -129,8 +151,7 @@ export default function PropiedadesPage() {
         />
       </motion.div>
 
-      {/* Slider Destacadas */}
-      {propiedadesDestacadas.length > 0 && (
+      {propiedadesDestacadas.length >= 3 && (
         <motion.div
           className="mb-10 overflow-hidden rounded-xl relative h-60"
           initial={{ opacity: 0 }}
@@ -159,7 +180,6 @@ export default function PropiedadesPage() {
         </motion.div>
       )}
 
-      {/* Listado general */}
       <motion.div
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
         initial={{ opacity: 0, y: 60 }}
@@ -167,22 +187,30 @@ export default function PropiedadesPage() {
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
-        {propiedadesFiltradas.map((prop) => (
+        {propiedadesPaginadas.map((prop) => (
           <div
             key={prop.id}
             className={`border rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-transform duration-300 ${cardStyle}`}
           >
-            <img
-              src={
-                prop.imagen?.startsWith("http")
-                  ? prop.imagen
-                  : `/images/${prop.imagen}`
-              }
-              alt={prop.titulo}
-              loading="lazy"
-              onError={(e) => (e.target.src = "/fallback.jpg")}
-              className="w-full h-48 object-cover"
-            />
+            <div className="relative w-full h-48">
+              {prop.destacada && (
+                <span className="absolute top-3 left-3 bg-yellow-300 dark:bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded shadow-md z-10 animate-bounce">
+                  🌟 Destacada
+                </span>
+              )}
+              <img
+                src={
+                  prop.imagen?.startsWith("http")
+                    ? prop.imagen
+                    : `/images/${prop.imagen}`
+                }
+                alt={prop.titulo}
+                loading="lazy"
+                onError={(e) => (e.target.src = "/fallback.jpg")}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-1">{prop.titulo}</h2>
               <p className="text-sm">
@@ -202,7 +230,6 @@ export default function PropiedadesPage() {
               <p className="text-green-500 font-bold text-lg mt-2">
                 ${prop.precio.toLocaleString()}
               </p>
-              {/* 👉 Botón de detalle */}
               <button
                 onClick={() => navigate(`/propiedades/${prop.id}`)}
                 className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
@@ -214,7 +241,24 @@ export default function PropiedadesPage() {
         ))}
       </motion.div>
 
-      {/* WhatsApp Floating Button */}
+      {totalPaginas > 1 && (
+        <div className="flex justify-center mt-10 gap-4">
+          {Array.from({ length: totalPaginas }, (_, i) => (
+            <button
+              key={i}
+              onClick={() => setPaginaActual(i + 1)}
+              className={`px-4 py-2 rounded-md border ${
+                paginaActual === i + 1
+                  ? "bg-blue-600 text-white"
+                  : "bg-white text-blue-600"
+              } hover:bg-blue-700 hover:text-white transition`}
+            >
+              {i + 1}
+            </button>
+          ))}
+        </div>
+      )}
+
       <a
         href="https://wa.me/573001112233"
         target="_blank"
