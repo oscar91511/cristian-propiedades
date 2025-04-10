@@ -5,6 +5,7 @@ import { FaUserTie, FaHome, FaHandshake, FaWhatsapp } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import Contacto from "./components/Contact";
 import PropertyFilter from "./components/PropertyFilter";
+import PromoSlider from "./components/PromoSlider";
 
 export default function LandingPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function LandingPage() {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false); // Cierra el menú al hacer clic
+      setMenuOpen(false);
     }
   };
 
@@ -86,23 +87,34 @@ export default function LandingPage() {
           )}
         </div>
       )}
-      {/* Hero */}
+      {/* Hero con Slider como Background */}
       <section
         id="inicio"
-        className="py-24 bg-blue-600 text-white text-center"
+        className="relative h-[80vh] overflow-hidden"
         data-aos="fade-up"
       >
-        <h2 className="text-4xl font-bold mb-4">Tu nuevo hogar te espera</h2>
-        <p className="text-xl max-w-2xl mx-auto">
-          Encuentra propiedades exclusivas, asesoría personalizada y el respaldo
-          de un experto en propiedad raíz.
-        </p>
-        <button
-          onClick={() => scrollToSection("contacto")}
-          className="mt-8 px-6 py-3 bg-white text-blue-600 rounded-lg shadow hover:bg-gray-100 transition-all hover:scale-105"
-        >
-          ¡Contáctame ahora!
-        </button>
+        {/* Slider de fondo */}
+        <div className="absolute inset-0">
+          <PromoSlider hero />
+          {/* Se recomienda agregar un overlay si se desea oscurecer un poco la imagen */}
+          <div className="absolute inset-0 bg-black opacity-30"></div>
+        </div>
+        {/* Contenido del Hero sobre el slider */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+          <h2 className="text-6xl font-bold mb-4 bg-blue-100/40 rounded px-4 py-4 text-rose-700">
+            Tu nuevo hogar te espera
+          </h2>
+          <p className="text-xl max-w-2xl mx-auto font-bold bg-blue-100/40 rounded px-4 py-4 text-rose-700">
+            Encuentra propiedades exclusivas, asesoría personalizada y el
+            respaldo de un experto en propiedad raíz.
+          </p>
+          <button
+            onClick={() => scrollToSection("contacto")}
+            className="mt-8 px-6 py-3 bg-white text-blue-600 rounded-lg shadow hover:text-white transition-all hover:scale-105 hover:bg-rose-700"
+          >
+            ¡Contáctame ahora!
+          </button>
+        </div>
       </section>
       {/* Biografía */}
       <section
@@ -198,8 +210,7 @@ export default function LandingPage() {
           ))}
         </div>
       </section>{" "}
-      <button id="mas-propiedades" className="...">
-      </button>
+      <button id="mas-propiedades" className="..."></button>
       <PropertyFilter />
       {/* Testimonios */}
       <section className="bg-gray-50 py-16 px-6" data-aos="fade-up">
