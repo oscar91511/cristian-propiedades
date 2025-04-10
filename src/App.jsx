@@ -27,6 +27,24 @@ export default function LandingPage() {
     }
   };
 
+  const bannerSlides = [
+    {
+      image: "/images/Banner_COMPRA-TU-CASA_2025.jpg",
+      title: "Encuentra tu lugar ideal",
+      description: "Propiedades exclusivas y atención personalizada",
+    },
+    {
+      image: "/images/banner_vivienda-proyecto-familiar.jpg",
+      title: "Compra con confianza",
+      description: "Más de 8 años de experiencia en propiedad raíz",
+    },
+    {
+      image: "/images/Banner-integridad-funcion-publica.jpg",
+      title: "Asesoría profesional",
+      description: "Desde la búsqueda hasta el cierre legal",
+    },
+  ];
+
   return (
     <div className="font-sans bg-gray-100 text-gray-800 scroll-smooth">
       {/* Navbar */}
@@ -90,27 +108,26 @@ export default function LandingPage() {
       {/* Hero con Slider como Background */}
       <section
         id="inicio"
-        className="relative h-[80vh] overflow-hidden"
-        data-aos="fade-up"
+        className="relative w-full h-[25.5vh] sm:h-[34.7vh] md:h-[46vh] lg:h-[52.5vh] overflow-hidden"
       >
-        {/* Slider de fondo */}
-        <div className="absolute inset-0">
-          <PromoSlider hero />
-          {/* Se recomienda agregar un overlay si se desea oscurecer un poco la imagen */}
-          <div className="absolute inset-0 bg-black opacity-30"></div>
+        <div className="absolute inset-0 z-0 h-full w-full">
+          <div className="h-full w-full">
+            <PromoSlider slides={bannerSlides} hero />
+          </div>
+          <div className="absolute inset-0 bg-black opacity-30 z-10" />
         </div>
-        {/* Contenido del Hero sobre el slider */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-          <h2 className="text-6xl font-bold mb-4 bg-blue-100/40 rounded px-4 py-4 text-rose-700">
+
+        <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-blue-100/40 rounded px-4 py-3 text-rose-700">
             Tu nuevo hogar te espera
           </h2>
-          <p className="text-xl max-w-2xl mx-auto font-bold bg-blue-100/40 rounded px-4 py-4 text-rose-700">
+          <p className="text-md md:text-xl font-bold bg-blue-100/40 rounded px-4 py-3 text-rose-700">
             Encuentra propiedades exclusivas, asesoría personalizada y el
             respaldo de un experto en propiedad raíz.
           </p>
           <button
             onClick={() => scrollToSection("contacto")}
-            className="mt-8 px-6 py-3 bg-white text-blue-600 rounded-lg shadow hover:text-white transition-all hover:scale-105 hover:bg-rose-700"
+            className="mt-6 px-6 py-3 bg-white text-blue-600 rounded-lg shadow hover:text-white transition-all hover:scale-105 hover:bg-rose-700"
           >
             ¡Contáctame ahora!
           </button>

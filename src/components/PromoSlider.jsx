@@ -1,88 +1,66 @@
-// PromoSlider.jsx
-import React from "react";
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function PromoSlider({ hero = false }) {
+const PromoSlider = ({ slides, hero = false }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !slides || slides.length === 0) return null;
+
   const settings = {
-    dots: hero ? false : true,
-    arrows: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: false,
+    autoplaySpeed: 5000,
+    arrows: false,
   };
 
-  const promociones = [
-    {
-      titulo: "Banner 1",
-      desc: "Promoción para Banner 1",
-      img: "/images/Banner_COMPRA-TU-CASA_2025.jpg",
-    },
-    {
-      titulo: "Banner 2",
-      desc: "Promoción para Banner 2",
-      img: "/images/banner_vivienda-proyecto-familiar.jpg",
-    },
-    {
-      titulo: "Banner 3",
-      desc: "Promoción para Banner 3",
-      img: "/images/Banner-integridad-funcion-publica.jpg",
-    },
-  ];
-
-  if (hero) {
-    return (
-      <Slider {...settings}>
-        {promociones.map((promo, idx) => (
-          <div key={idx} className="h-full">
-            <img
-              src={promo.img}
-              alt={promo.titulo}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </Slider>
-    );
-  }
-
   return (
-    <section
-      id="promociones"
-      className="py-16 px-6 bg-blue-50"
-      data-aos="fade-up"
+    <div
+      className={`w-full overflow-hidden ${
+        hero ? "rounded-none" : "rounded-xl"
+      } relative`}
     >
-      <h3 className="text-3xl font-semibold text-center text-blue-700 mb-10">
-        Promociones
-      </h3>
       <Slider {...settings}>
-        {promociones.map((promo, idx) => (
-          <div key={idx} className="px-4">
-            <div className="relative">
+        {slides.map((slide, index) => (
+          <div key={index} className="relative">
+            <div
+              className={`w-full ${
+                hero
+                  ? "h-[220px] sm:h-[300px] md:h-[400px] lg:h-[600px]"
+                  : "h-[140px] sm:h-[200px] md:h-[300px] lg:h-[400px]"
+              } relative`}
+            >
               <img
-                src={promo.img}
-                alt={promo.titulo}
-                className="w-full h-64 object-cover rounded-lg shadow-lg"
+                src={slide.image}
+                alt={`Slide ${index + 1}`}
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center rounded-lg">
-                <h4 className="text-2xl text-white font-bold mb-2">
-                  {promo.titulo}
-                </h4>
-                <p className="text-white text-lg">{promo.desc}</p>
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-white text-center p-4">
+                <div>
+                  <h2 className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold">
+                    {slide.title}
+                  </h2>
+                  <p className="text-xs sm:text-sm md:text-base">
+                    {slide.description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         ))}
       </Slider>
-    </section>
+    </div>
   );
-}
+};
 
 export default PromoSlider;
