@@ -9,7 +9,7 @@ export const data = [
     transaccion: "Compra",
     precio: "350.000.000",
     imagen:
-      "https://images.unsplash.com/photo-1560185127-6ed189bf02c4?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwMHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const data = [
     transaccion: "Compra",
     precio: "250.000.000",
     imagen:
-      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1630699144852-059c10938d27?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const data = [
     transaccion: "Compra",
     precio: "150.000.000",
     imagen:
-      "https://images.unsplash.com/photo-1590490350331-d3dd6c88c0c5?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1719474815671-08411b0ea840?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const data = [
     transaccion: "Compra",
     precio: "500.000.000",
     imagen:
-      "https://images.unsplash.com/photo-1572120360610-d971b9b78847?auto=format&fit=crop&w=800&q=60",
+      "https://plus.unsplash.com/premium_photo-1689609950112-d66095626efb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ export const data = [
     transaccion: "Compra",
     precio: "320.000.000",
     imagen:
-      "https://images.unsplash.com/photo-1600585154516-055f6da16f06?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1620086385485-d0bd6daa815c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ export const data = [
     transaccion: "Alquiler",
     precio: "950.000",
     imagen:
-      "https://images.unsplash.com/photo-1593810454444-9aaeb3e99f07?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1645803991591-b7464d2e424f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 7,
@@ -81,7 +81,7 @@ export const data = [
     transaccion: "Compra",
     precio: "620.000.000",
     imagen:
-      "https://images.unsplash.com/photo-1600585154484-7bfff4884c4f?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1650211803854-e7b2e0ce86f9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 8,
@@ -93,7 +93,7 @@ export const data = [
     transaccion: "Alquiler",
     precio: "1.200.000",
     imagen:
-      "https://images.unsplash.com/photo-1600607687549-3b8d3c41e110?auto=format&fit=crop&w=800&q=60",
+      "https://plus.unsplash.com/premium_photo-1724659217647-4bfdba75e5a6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 9,
@@ -105,7 +105,7 @@ export const data = [
     transaccion: "Compra",
     precio: "180.000.000",
     imagen:
-      "https://images.unsplash.com/photo-1600585154501-4b0d30d3d4d3?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1559752096-250fc17d963d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 10,
@@ -117,7 +117,7 @@ export const data = [
     transaccion: "Alquiler",
     precio: "1.500.000",
     imagen:
-      "https://images.unsplash.com/photo-1600585154520-53e4b2b161d1?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=60",
   },
   {
     id: 11,
@@ -129,7 +129,7 @@ export const data = [
     transaccion: "Alquiler",
     precio: "1.100.000",
     imagen:
-      "https://images.unsplash.com/photo-1575517111478-7f6afd0973ae?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 12,
@@ -141,7 +141,7 @@ export const data = [
     transaccion: "Alquiler",
     precio: "950.000",
     imagen:
-      "https://images.unsplash.com/photo-1601918774946-df2b2e21b17f?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1605146769289-440113cc3d00?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 13,
@@ -153,7 +153,7 @@ export const data = [
     transaccion: "Alquiler",
     precio: "1.400.000",
     imagen:
-      "https://images.unsplash.com/photo-1588854337221-dc8f3a74f2dd?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 14,
@@ -165,7 +165,7 @@ export const data = [
     transaccion: "Alquiler",
     precio: "1.800.000",
     imagen:
-      "https://images.unsplash.com/photo-1600573472959-0958e6bda5a1?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 15,

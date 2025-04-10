@@ -35,7 +35,6 @@ export default function PropiedadesPage() {
   });
 
   const propiedadesDestacadas = data.filter((prop) => prop.destacada);
-
   const cardStyle = modoOscuro
     ? "bg-gray-800 text-white"
     : "bg-white text-gray-900";
@@ -46,6 +45,7 @@ export default function PropiedadesPage() {
         modoOscuro ? "dark bg-gray-900 text-white" : "bg-gray-50 text-gray-900"
       } p-4 max-w-7xl mx-auto min-h-screen transition-colors duration-500`}
     >
+      {/* Navegación y Modo Oscuro */}
       <div className="flex justify-between items-center mb-6">
         <button
           onClick={() => navigate(-1)}
@@ -67,25 +67,9 @@ export default function PropiedadesPage() {
         </button>
       </div>
 
-      <h1 className="text-4xl font-bold mb-10 text-center animate-fade-in">
-        Propiedades Disponibles 🏡
+      <h1 className="text-4xl font-bold mb-10 text-center border-b-2 border-blue-500 pb-4">
+        Propiedades Disponibles <span className="text-blue-600">🏡</span>
       </h1>
-
-      {/* Slider Publicitario */}
-      <div className="mb-10 overflow-hidden rounded-xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {["/publicidad1.jpg", "/publicidad2.jpg", "/publicidad3.jpg"].map(
-            (src, idx) => (
-              <img
-                key={idx}
-                src={src}
-                alt={`Promo ${idx + 1}`}
-                className="rounded-xl w-full h-60 object-cover"
-              />
-            )
-          )}
-        </div>
-      </div>
 
       {/* Filtros */}
       <motion.div
@@ -145,7 +129,7 @@ export default function PropiedadesPage() {
         />
       </motion.div>
 
-      {/* Propiedades Destacadas */}
+      {/* Slider Destacadas */}
       {propiedadesDestacadas.length > 0 && (
         <motion.div
           className="mb-10 overflow-hidden rounded-xl relative h-60"
@@ -162,16 +146,15 @@ export default function PropiedadesPage() {
               ease: "linear",
             }}
           >
-            {["/publicidad1.jpg", "/publicidad2.jpg", "/publicidad3.jpg"].map(
-              (src, idx) => (
-                <img
-                  key={idx}
-                  src={src}
-                  alt={`Promo ${idx + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              )
-            )}
+            {propiedadesDestacadas.map((prop, idx) => (
+              <img
+                key={idx}
+                src={prop.imagen}
+                alt={prop.titulo}
+                className="w-full h-full object-cover"
+                onError={(e) => (e.target.src = "/fallback.jpg")}
+              />
+            ))}
           </motion.div>
         </motion.div>
       )}
@@ -190,7 +173,11 @@ export default function PropiedadesPage() {
             className={`border rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition-transform duration-300 ${cardStyle}`}
           >
             <img
-              src={prop.imagen}
+              src={
+                prop.imagen?.startsWith("http")
+                  ? prop.imagen
+                  : `/images/${prop.imagen}`
+              }
               alt={prop.titulo}
               loading="lazy"
               onError={(e) => (e.target.src = "/fallback.jpg")}
@@ -220,7 +207,7 @@ export default function PropiedadesPage() {
         ))}
       </motion.div>
 
-      {/* Botón flotante WhatsApp */}
+      {/* WhatsApp Floating Button */}
       <a
         href="https://wa.me/573001112233"
         target="_blank"
