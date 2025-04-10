@@ -202,6 +202,13 @@ export default function PropiedadesPage() {
               <p className="text-green-500 font-bold text-lg mt-2">
                 ${prop.precio.toLocaleString()}
               </p>
+              {/* 👉 Botón de detalle */}
+              <button
+                onClick={() => navigate(`/propiedades/${prop.id}`)}
+                className="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+              >
+                Ver Detalle
+              </button>
             </div>
           </div>
         ))}

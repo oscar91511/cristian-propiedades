@@ -8,8 +8,16 @@ export const data = [
     tamaño: 120,
     transaccion: "Compra",
     precio: "350.000.000",
+    ubicacion: "Cerritos, Pereira",
+    descripcion:
+      "Disfruta de la tranquilidad y el confort en esta espectacular casa campestre ubicada en una de las zonas más exclusivas y de mayor valorización de Pereira: Cerritos. Esta propiedad combina a la perfección el estilo moderno con la naturaleza, ofreciéndote un entorno rodeado de vegetación, aire puro y una vista privilegiada. Con un diseño arquitectónico pensado para el bienestar, cuenta con 3 amplias habitaciones, 2 baños funcionales, una cocina integral abierta que se integra con la zona social, y grandes ventanales que permiten el ingreso de luz natural y una conexión constante con el exterior. El área de 120 m² construidos se distribuye eficientemente sobre un lote que te brinda espacio para jardines, zona de BBQ o incluso la posibilidad de construir una piscina privada. Ideal para quienes buscan una vida apacible sin alejarse de la ciudad, ya que Cerritos ofrece acceso rápido a centros comerciales, colegios campestres, restaurantes y clínicas. Ya sea como vivienda permanente o casa de descanso, esta es una oportunidad única para invertir en calidad de vida, naturaleza y exclusividad.",
     imagen:
       "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwMHx8fGVufDB8fHx8fA%3D%3D",
+    galeria: [
+      "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?w=600",
+      "https://images.unsplash.com/photo-1599423300746-b62533397364?w=600",
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600",
+    ],
   },
   {
     id: 2,
