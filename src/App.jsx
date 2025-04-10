@@ -108,7 +108,7 @@ export default function LandingPage() {
       {/* Hero con Slider como Background */}
       <section
         id="inicio"
-        className="relative w-full h-[25.5vh] sm:h-[34.7vh] md:h-[46vh] lg:h-[52.5vh] overflow-hidden"
+        className="relative w-full h-[25.5vh] sm:h-[34.7vh] md:h-[46vh] lg:h-[52.5vh] overflow-hidden "
       >
         <div className="absolute inset-0 z-0 h-full w-full">
           <div className="h-full w-full">
@@ -117,14 +117,9 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-black opacity-30 z-10" />
         </div>
 
-        <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-blue-100/40 rounded px-4 py-3 text-rose-700">
-            Tu nuevo hogar te espera
-          </h2>
-          <p className="text-md md:text-xl font-bold bg-blue-100/40 rounded px-4 py-3 text-rose-700">
-            Encuentra propiedades exclusivas, asesoría personalizada y el
-            respaldo de un experto en propiedad raíz.
-          </p>
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-2 text-center">
+          <h2 className="text-3xl md:text-4xl sm:text-xl lg:h-xl  md:h-[xl] font-bold mb-2 bg-blue-100/40 rounded px-2 py-1 text-rose-700"></h2>
+          <p className="text-md md:text-xl font-bold bg-blue-100/40 rounded px-4 py-1 text-rose-700"></p>
           <button
             onClick={() => scrollToSection("contacto")}
             className="mt-6 px-6 py-3 bg-white text-blue-600 rounded-lg shadow hover:text-white transition-all hover:scale-105 hover:bg-rose-700"
@@ -190,7 +185,7 @@ export default function LandingPage() {
         <h3 className="text-3xl font-semibold text-center text-blue-700 mb-10">
           Propiedades Destacadas
         </h3>
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto ">
           {[
             {
               img: "/images/img4.jpg",
@@ -218,7 +213,7 @@ export default function LandingPage() {
                 className="h-60 w-full object-cover"
               />
               <div className="p-4">
-                <h4 className="text-xl font-semibold text-blue-700 mb-1">
+                <h4 className="text-xl font-semibold text-blue-700 mb-1 ">
                   {property.title}
                 </h4>
                 <p className="text-gray-600">{property.desc}</p>
